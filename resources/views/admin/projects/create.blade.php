@@ -54,6 +54,12 @@
             </div>
 
             <div class="mb-3">
+                <label for="technology" class="form-label fw-semibold">Tecnologia</label>
+                <input type="text" class="form-control @error('technology') is-invalid @enderror" id="technology"
+                    name="technology_id" value="{{ old('technology') }}">
+            </div>
+
+            <div class="mb-3">
                 <label for="description" class="form-label fw-semibold">Descrizione</label>
                 <textarea class="form-control" name="description" rows="6">{{ old('description') }}</textarea>
             </div>
