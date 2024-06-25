@@ -24,7 +24,7 @@ class ProjectsTableSeeder extends Seeder
             $newProject->description = $faker->paragraph();
             $newProject->start_date = $faker->dateTimeBetween('0 week', '+1 week');;
             $newProject->end_date = $faker->dateTimeBetween('+5 week', '+6 week');;
-            $newProject->type = $this->getRandomType($faker);
+            // $newProject->type = $this->getRandomType($faker);
             $newProject->slug = Str::slug($newProject->title . '-' . $faker->numerify('####'));
 
             $newProject->save(); 
