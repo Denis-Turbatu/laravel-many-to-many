@@ -69,6 +69,12 @@
                   <i class="fa-solid fa-diagram-project me-2"></i> Progetti
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link text-white {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
+                  href="{{ route('admin.technologies.index') }}">
+                  <i class="fa-solid fa-gears me-2"></i></i> Tecnologie
+                </a>
+              </li>
             </ul>
 
 
