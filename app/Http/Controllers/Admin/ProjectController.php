@@ -73,7 +73,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::all();
-        return view('admin.projects.edit', compact('project', 'types'));
+        $technologies = Technology::all();
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 
     // FUNZIONE CUSTOM
@@ -99,6 +100,7 @@ class ProjectController extends Controller
         $project->slug = $request->title . '-' . $slugBody;
         $data['slug'] = $project->slug;
         $project->update($data);
+        $project->technologies()->sync($request->technologies);
 
         return redirect()->route('admin.projects.show', ['project' => $project->slug]);
     }
