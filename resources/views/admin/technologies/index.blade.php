@@ -22,7 +22,10 @@
                         <tr>
                             <th scope="row">{{ $tech->id }}</th>
                             <td>{{ $tech->name }}</td>
-                            <td>{{ $tech->color }}</td>
+                            <td class="align-middle">
+                                {{ $tech->color }}
+                                <span class="ms-color-preview align-middle" style="background-color: {{ $tech->color }};"></span>
+                            </td>
                             <td>
                                 <div class="d-flex gap-2">
                                     <a href="{{ route('admin.technologies.show', ['technology' => $tech->id]) }}"
