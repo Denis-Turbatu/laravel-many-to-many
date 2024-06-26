@@ -20,12 +20,14 @@
                 <tbody>
                     @foreach ($techList as $tech)
                         <tr>
-                            <th scope="row">{{$tech->id}}</th>
-                            <td>{{$tech->name}}</td>
-                            <td>{{$tech->color}}</td>
+                            <th scope="row">{{ $tech->id }}</th>
+                            <td>{{ $tech->name }}</td>
+                            <td>{{ $tech->color }}</td>
                             <td>
                                 <div class="d-flex gap-2">
-                                    {{-- <a href="{{route('admin.technologies.show'), ['technology'=>$tech->id]}}" class="btn btn-primary">Dettagli</a>
+                                    <a href="{{ route('admin.technologies.show', ['technology' => $tech->id]) }}"
+                                        class="btn btn-primary">Dettagli</a>
+                                    {{-- 
                                     <a href="{{route('admin.technologies.edit'), ['technology'=>$tech->id]}}" class="btn btn-success">Modifica</a>
                                     <form action="{{route('admin.technologies.destroy')}}" method="POST">
                                         @csrf

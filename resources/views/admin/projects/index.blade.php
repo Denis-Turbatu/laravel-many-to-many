@@ -27,17 +27,20 @@
                 <tbody>
                     @foreach ($listaProgetti as $progetto)
                         <tr>
-                            <th scope="row">{{$progetto->id}}</th>
-                            <td>{{$progetto->title}}</td>
-                            <td>{{$progetto->description}}</td>
-                            <td>{{$progetto->type?->title}}</td>
-                            <td>{{$progetto->slug}}</td>
+                            <th scope="row">{{ $progetto->id }}</th>
+                            <td>{{ $progetto->title }}</td>
+                            <td>{{ $progetto->description }}</td>
+                            <td>{{ $progetto->type?->title }}</td>
+                            <td>{{ $progetto->slug }}</td>
                             <td>
                                 <div class="d-flex gap-2">
-                                    <a href="{{route('admin.projects.show', ['project'=>$progetto->slug])}}" class="btn btn-primary">Dettagli</a>
-                                    <a href="{{route('admin.projects.edit', ['project'=>$progetto->slug])}}" class="btn btn-success
+                                    <a href="{{ route('admin.projects.show', ['project' => $progetto->slug]) }}"
+                                        class="btn btn-primary">Dettagli</a>
+                                    <a href="{{ route('admin.projects.edit', ['project' => $progetto->slug]) }}"
+                                        class="btn btn-success
                                         ">Modifica</a>
-                                    <form action="{{route('admin.projects.destroy', ['project'=>$progetto->slug])}}" method="POST">
+                                    <form action="{{ route('admin.projects.destroy', ['project' => $progetto->slug]) }}"
+                                        method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Elimina</button>
