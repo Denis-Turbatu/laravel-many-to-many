@@ -28,6 +28,7 @@ class StoreProjectRequest extends FormRequest
             'start_date' => ['required'],
             'end_date' => ['required'],
             'type_id'=> ['nullable'],
+            'technologies' => ['nullable', 'exists:technologies,id'],
         ];
     }
 

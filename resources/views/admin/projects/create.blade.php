@@ -57,7 +57,7 @@
                 <div class="form-check d-flex flex-column">
                     @foreach ($technologies as $tech)
                         <div class="my-2">
-                            <input class="form-check-input" type="checkbox" value="{{$tech->id}}" id="technology-{{$tech->id}}" name="technologies[]">
+                            <input @checked(in_array($tech->id, old('technologies', []))) class="form-check-input" type="checkbox" value="{{$tech->id}}" id="technology-{{$tech->id}}" name="technologies[]">
                             <label class="form-check-label" for="technology-{{$tech->id}}">
                                 {{$tech->name}}
                             </label>
