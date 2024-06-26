@@ -46,9 +46,13 @@ class ProjectController extends Controller
         $project->slug = $project->title . "-" . rand(00000, 99999);
 
         // salvo i data nel DB
-
         // dd($project);
         $project->save();
+
+        //controllo presenza tecnologie
+        if ($request->has('technologies')) {
+            $project->technologies()->attach($request->technologies);
+        }
 
         // reindirizzo l'utente
         return redirect()->route("admin.projects.index");
