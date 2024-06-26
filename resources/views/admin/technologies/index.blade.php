@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="d-flex justify-content-between align-items-center my-5">
-            <h1>Lista Progetti</h1>
+            <h1>Lista Tecnologie</h1>
             <a href="{{ route('admin.technologies.create') }}"
                 class="px-4 py-2 bg-success text-decoration-none text-white rounded-2">Crea</a>
         </div>
