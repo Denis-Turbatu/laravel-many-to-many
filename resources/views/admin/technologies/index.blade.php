@@ -27,8 +27,9 @@
                                 <div class="d-flex gap-2">
                                     <a href="{{ route('admin.technologies.show', ['technology' => $tech->id]) }}"
                                         class="btn btn-primary">Dettagli</a>
+                                    
+                                    <a href="{{route('admin.technologies.edit', ['technology'=>$tech->id])}}" class="btn btn-success">Modifica</a>
                                     {{-- 
-                                    <a href="{{route('admin.technologies.edit'), ['technology'=>$tech->id]}}" class="btn btn-success">Modifica</a>
                                     <form action="{{route('admin.technologies.destroy')}}" method="POST">
                                         @csrf
                                         @method('DELETE')
