@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreTechnologyRequest;
 use Illuminate\Http\Request;
 use App\Models\Technology;
 
@@ -22,15 +23,20 @@ class TechnologyController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.technologies.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreTechnologyRequest $request)
     {
-        //
+        $data = $request->all();
+        $project = new Technology();
+        $project->fill($data);
+
+        $project->save();
+        return redirect()->route("admin.technologies.index");
     }
 
     /**
