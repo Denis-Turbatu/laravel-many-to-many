@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container">
-        <h1 class="my-5">Aggiungi un progetto!</h1>
+        <h1 class="my-5">Modifica il tuo progetto</h1>
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -58,8 +58,14 @@
                 <div class="form-check d-flex flex-column">
                     @foreach ($technologies as $tech)
                         <div class="my-2">
-                            <input @checked($project->technologies->contains($tech)) class="form-check-input" type="checkbox"
-                                value="{{ $tech->id }}" id="technology-{{ $tech->id }}" name="technologies[]">
+                            @if (old('technologies') === null)
+                                <input @checked($project->technologies->contains($tech)) class="form-check-input" type="checkbox"
+                                    value="{{ $tech->id }}" id="technology-{{ $tech->id }}" name="technologies[]">
+                            @else
+                                <input @checked(in_array($tech->id, old('technologies', []))) class="form-check-input" type="checkbox"
+                                    value="{{ $tech->id }}" id="technology-{{ $tech->id }}" name="technologies[]">
+                            @endif
+
                             <label class="form-check-label" for="technology-{{ $tech->id }}">
                                 {{ $tech->name }}
                             </label>
